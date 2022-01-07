@@ -176,3 +176,5 @@ gldcore/geodata/docs/geodata.conf
 gldcore/gridlabd.in
 geodata.conf
 cloud/websites/install.gridlabd.us/validate*.tarz
+gldcore/autotest/output.csv
+python_extras/example/output.csv
