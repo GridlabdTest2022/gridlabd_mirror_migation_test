@@ -38,9 +38,13 @@ RUN	curl https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz | tar xz
 	# tar xzf Python-3.9.6.tgz 
 WORKDIR /usr/local/src/Python-3.9.6
 
-RUN	./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
-
-RUN	make -j $(nproc)
+#RUN	./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC -lutil"
+RUN ./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
+RUN export MAKEFLAGS=-j6
+RUN export PYTHONSETUPFLAGS="-j 6"
+RUN 
+RUN export LD_LIBRARY_PATH=.:/usr/local/lib
+RUN	make -j 6
 RUN	make altinstall
 RUN	/sbin/ldconfig /usr/local/lib
 RUN	ln -sf /usr/local/bin/python3.9 /usr/local/bin/python3
@@ -56,4 +60,4 @@ WORKDIR /usr/local/src/
 RUN git clone https://github.com/slacgismo/gridlabd.git
 WORKDIR /usr/local/src/gridlabd
 RUN autoreconf -isf && ./configure
-RUN make -j6 system
+# RUN make -j6 system
