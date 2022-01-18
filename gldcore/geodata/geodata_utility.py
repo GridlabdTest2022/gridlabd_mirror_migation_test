@@ -59,8 +59,9 @@ version = 1
 import os, sys
 import math
 import pandas
-import geopandas
 import fiona
+import geopandas
+
 import pickle
 import numpy as np
 from shapely.geometry import Point
