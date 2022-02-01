@@ -32,7 +32,7 @@ version = 1 # specify API version
 import sys
 import json
 from pandas import DataFrame, Series
-from shapely.geometry import Point
+from .geometry import Point
 from geopandas.tools import geocode, reverse_geocode
 
 #

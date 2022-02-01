@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #assert $(gridlabd matrix version) == '1.22.0'
+=======
+#assert ! $(gridlabd matrix version) '<' '1.21.0'
+>>>>>>> 39bfce41ee75c39d6a057fdb523c251e1ef1f72d
 
 // random.choice <arrayorint> size=<intlist> replace=<boolstr> p=<array>
 #assert ! -z $(gridlabd matrix -f random.choice "1,2,3,4,5")
