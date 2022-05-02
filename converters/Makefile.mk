@@ -2,7 +2,7 @@
 # INPUT CONVERTERS
 #
 
-python_requirements += converters/requirements.txt
+python_requirements += $(top_srcdir)/converters/requirements.txt
 
 # csv -> glm
 dist_pkgdata_DATA += converters/csv-ami2glm-ceus.py
@@ -26,6 +26,8 @@ dist_pkgdata_DATA += converters/gz2glm.py
 # mdb -> glm
 dist_pkgdata_DATA += converters/mdb2glm.py
 dist_pkgdata_DATA += converters/mdb-cyme2glm.py
+dist_pkgdata_DATA += converters/mdb-table2glm-object.py
+dist_pkgdata_DATA += converters/mdb-table2glm-player.py
 
 # omd -> glm
 dist_pkgdata_DATA += converters/omd2glm.py

@@ -652,6 +652,8 @@ struct s_module_list {
 	TIMESTAMP (*on_postsync)(TIMESTAMP t);
 	bool (*on_commit)(TIMESTAMP t);
 	void (*on_term)(void);
+	bool templates_loaded;
+	bool no_templates;
 	MODULE *next;
 };
 
@@ -973,6 +975,7 @@ typedef struct s_enduse {
 	double cumulative_heatgain;  /* internal cumulative heat gain from load (Btu) */ 
 	double heatgain_fraction;	/* fraction of power that goes to internal heat (pu Btu/h) */
 	double gas_fraction;		/* fraction of energy that comes from natural gas */
+	double curtailment_fraction;
 
 	/* misc info */
 	char *name;
