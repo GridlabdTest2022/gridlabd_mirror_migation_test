@@ -2,7 +2,8 @@
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 brew update || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/HomeBrew/install/master/install)"
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
 brew doctor
 
 # build tools
