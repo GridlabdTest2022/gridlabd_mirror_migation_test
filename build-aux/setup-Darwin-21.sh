@@ -10,15 +10,19 @@ brew doctor
 brew install autoconf automake libtool gnu-sed gawk
 
 if test -e "/usr/local/bin"; then
+    sudo bash -c '
     [ ! -L /usr/local/bin/sed -o ! "$(readlink /usr/local/bin/sed)" == "/opt/homebrew/bin/gsed" ] && mv /usr/local/bin/sed /usr/local/bin/sed-old
     [ ! -e /usr/local/bin/sed ] && ln -s /opt/homebrew/bin/gsed /usr/local/bin/sed
     [ ! -e /usr/local/bin/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /usr/local/bin/libtoolize
+    '
 fi
 
 if test -e "/usr/bin"; then
+    sudo bash -c '
     [ ! -L /usr/bin/sed -o ! "$(readlink /usr/bin/sed)" == "/opt/homebrew/bin/gsed" ] && mv /usr/bin/sed /usr/bin/sed-old
     [ ! -e /usr/bin/sed ] && ln -s /opt/homebrew/bin/gsed /usr/bin/sed
     [ ! -e /usr/bin/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /usr/bin/libtoolize
+    '
 fi
 
 # install python3
@@ -30,7 +34,17 @@ brew install mdbtools
 # docs generators
 brew install mono
 brew install naturaldocs
-ln -s /usr/local/bin/naturaldocs /usr/local/bin/natural_docs
+if test -e "/usr/local/bin"; then
+    sudo bash -c '
+    ln -s /opt/homebrew/bin/naturaldocs /usr/local/bin/natural_docs
+    '
+fi
+
+if test -e "/usr/bin"; then
+    sudo bash -c '
+    ln -s /opt/homebrew/bin/naturaldocs /usr/bin/natural_docs
+    '
+fi
 brew install doxygen
 
 # influxdb
