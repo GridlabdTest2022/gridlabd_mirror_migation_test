@@ -10,7 +10,7 @@ brew doctor
 brew install autoconf automake libtool gnu-sed gawk
 [ ! -L /usr/local/bin/sed -o ! "$(readlink /usr/local/bin/sed)" == "/usr/local/bin/gsed" ] && mv /usr/local/bin/sed /usr/local/bin/sed-old
 [ ! -e /usr/local/bin/sed ] && ln -s /usr/local/bin/gsed /usr/local/bin/sed
-[ ! -e /usr/local/bin/libtoolize ] && ln -s /usr/local/bin/glibtoolize /usr/local/bin/libtoolize
+PATH="$(brew --prefix)/opt/libtool/libexec/gnubin:$PATH"
 
 # install python3
 brew install python3
