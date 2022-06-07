@@ -1,11 +1,7 @@
 #!/bin/bash
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
-
-echo -n '- Installing brew ... '
-echo | /usr/bin/ruby -e "$(curl -fsSL $URL_BREW)" > /dev/null
-if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+brew update || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/HomeBrew/install/master/install)"
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 brew doctor
 
