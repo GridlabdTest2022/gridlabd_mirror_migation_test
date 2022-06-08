@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set the path to use during installation
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 # check sudo
 if [ "$(whoami)" == "root" ]; then
