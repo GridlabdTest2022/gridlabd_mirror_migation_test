@@ -1,7 +1,7 @@
 #!/bin/bash
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-brew update || yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/HomeBrew/install/master/install)"
 
     # Set-up install directory and add gridlabd and homebrew to bash profile path
     if test ! -e "/opt/gridlabd/bin"; then
@@ -12,7 +12,7 @@ brew update || yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.co
         touch "$HOME/.bash_profile"
     fi
 
-    if grep -q '/opt/gridlabd/bin' "$HOME/.bash_profile"; then
+    if ! grep -q '/opt/gridlabd/bin' "$HOME/.bash_profile"; then
         touch "$HOME/.bash_profile"
         echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.bash_profile
         echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.bash_profile
