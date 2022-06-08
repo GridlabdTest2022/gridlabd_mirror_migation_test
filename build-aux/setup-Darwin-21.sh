@@ -3,7 +3,6 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # install homebrew
     brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
-    brew update-reset
 
 # Set-up install directory and add gridlabd and homebrew to bash profile path
     if test ! -e "/opt/gridlabd/bin"; then
@@ -26,8 +25,17 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
         echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.profile
         echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.profile
         echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.profile
-        source $HOME/.profile
     fi
+
+    if ! grep -q '/opt/gridlabd/bin' "$HOME/.bashrc"; then
+        touch "$HOME/.bashrc"
+        echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.bashrc
+        echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.bashrc
+        echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.bashrc
+        source $HOME/.bashrc
+    fi
+
+    brew update-reset
     brew doctor
 
 # build tools
