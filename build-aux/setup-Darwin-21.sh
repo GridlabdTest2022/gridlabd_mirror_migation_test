@@ -1,23 +1,23 @@
 #!/bin/bash
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-brew update || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update || yes | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     # Set-up install directory and add gridlabd and homebrew to bash profile path
     if test ! -e "/opt/gridlabd/bin"; then
         mkdir -p "/opt/gridlabd/bin"
     fi
 
-    if test ! -e "~/.bash_profile"; then
-        touch "~/.bash_profile"
+    if test ! -e "$HOME/.bash_profile"; then
+        touch "$HOME/.bash_profile"
     fi
 
-    if grep -q '/opt/gridlabd/bin' "~/.bash_profile"; then
-        touch "~/.bash_profile"
-        echo 'export PATH=/opt/homebrew/bin:$PATH' >> ~/.bash_profile
-        echo 'export PATH=/opt/homebrew/sbin:$PATH' >> ~/.bash_profile
-        echo 'export PATH=/opt/gridlabd/bin:$PATH' >> ~/.bash_profile
-        source ~/.bash_profile
+    if grep -q '/opt/gridlabd/bin' "$HOME/.bash_profile"; then
+        touch "$HOME/.bash_profile"
+        echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.bash_profile
+        echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.bash_profile
+        echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.bash_profile
+        source $HOME/.bash_profile
     fi
 
 brew doctor
