@@ -1,9 +1,11 @@
 #!/bin/bash
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
+# install homebrew
+    brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
+    brew update-reset
 
-    # Set-up install directory and add gridlabd and homebrew to bash profile path
+# Set-up install directory and add gridlabd and homebrew to bash profile path
     if test ! -e "/opt/gridlabd/bin"; then
         mkdir -p "/opt/gridlabd/bin"
     fi
@@ -20,7 +22,7 @@ brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/t
         source $HOME/.bash_profile
     fi
 
-brew doctor
+    brew doctor
 
 # build tools
 
@@ -32,21 +34,21 @@ brew doctor
     [ ! -e /opt/gridlabd/bin/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /opt/gridlabd/bin/libtoolize
 
 # install python3
-brew install python3
+    brew install python3
 
 # mdbtools
-brew install mdbtools
+    brew install mdbtools
 
 # docs generators
-brew install mono
-brew install naturaldocs
-ln -s /opt/homebrew/bin/naturaldocs /opt/gridlabd/bin/natural_docs
+    brew install mono
+    brew install naturaldocs
+    ln -s /opt/homebrew/bin/naturaldocs /opt/gridlabd/bin/natural_docs
 
-brew install doxygen
+    brew install doxygen
 
 # influxdb
-brew install influxdb
-brew services start influxdb
+    brew install influxdb
+    brew services start influxdb
 
 # subversion cli
-brew install svn
+    brew install svn
