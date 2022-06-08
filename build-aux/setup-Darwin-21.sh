@@ -19,9 +19,15 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
         echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.bash_profile
         echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.bash_profile
         echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.bash_profile
-        source $HOME/.bash_profile
     fi
 
+    if ! grep -q '/opt/gridlabd/bin' "$HOME/.profile"; then
+        touch "$HOME/.profile"
+        echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.profile
+        echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.profile
+        echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.profile
+        source $HOME/.profile
+    fi
     brew doctor
 
 # build tools
