@@ -32,9 +32,9 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
         echo 'export PATH=/opt/homebrew/bin:$PATH' >> $HOME/.bashrc
         echo 'export PATH=/opt/homebrew/sbin:$PATH' >> $HOME/.bashrc
         echo 'export PATH=/opt/gridlabd/bin:$PATH' >> $HOME/.bashrc
-        source $HOME/.bashrc
     fi
 
+    source $HOME/.bashrc
     brew update-reset
     brew doctor
 
