@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # set the path to use during installation
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+# install is being upgraded to use an entirely self-contained package system. 
 
 # check sudo
 if [ "$(whoami)" == "root" ]; then
@@ -13,12 +15,17 @@ else
 	sudo --version >/dev/null 2>&1 || (echo "$0: sudo is required"; exit 1)
 fi
 
-# local folder
+# local folder, include a bin for gridlabd-specific binaries 
+# and src to link general installed requirements
+# sudo should only be needed once here to give rights to package directory
 VAR="/opt/gridlabd"
-if [ ! -d "$VAR" ]; then
+if test ! -e "$VAR/bin"; then
 	mkdir -p $VAR || ( sudo mkdir -p $VAR && sudo chown ${USER:-root} $VAR )
+	mkdir -p $VAR/src || (echo "$0: Could not make $VAR/src, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/bin || (echo "$0: Could not make $VAR/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 fi
 
+export PATH=$VAR/bin:$VAR/src:$PATH
 # setup logging
 LOG="$VAR/install.log"
 function log()
@@ -327,7 +334,7 @@ if [ "$SETUP" == "yes" ]; then
     fi
 	SOK="$VAR/setup.ok"
     if [ ! -f "$SOK" -o "$FORCE" == "yes" ]; then
-		run build-aux/setup.sh
+		run build-aux/setup.sh $VAR
 		date > "$SOK"
 	elif [ -f "$SOK" ]; then
 		log "SETUP: already completed at $(cat $SOK)"
