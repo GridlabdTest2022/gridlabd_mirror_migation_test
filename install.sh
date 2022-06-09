@@ -71,6 +71,7 @@ function error()
 # check for commands that absolutely necessary to proceed
 function require()
 {
+	echo "$PATH"
 	$1 ${2:---version}
 	$1 --version
 	$1 ${2:---version} > /dev/null 2>&1 || error "$1 is required"
@@ -392,7 +393,6 @@ if [ "$QUICK" == "no" ]; then
 		require libtoolize
 		run libtoolize
 	fi
-	echo "$PATH"
 	require autoscan
 	run autoscan
 fi
@@ -423,7 +423,7 @@ if [ "$PARALLEL" == "yes" ]; then
 fi
 
 # build everything
-export PATH=/usr/local/bin:/usr/bin:/bin:$PATH
+export PATH=$VAR/bin:$VAR/src:$VAR/src/bin
 run make -j$((3*$NPROC)) system
 
 if [ "$DOCS" == "yes" ]; then
