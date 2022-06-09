@@ -16,16 +16,16 @@ else
 fi
 
 # local folder, include a bin for gridlabd-specific binaries 
-# and src to link general installed requirements
+# and src to link general installed binaries
 # sudo should only be needed once here to give rights to package directory
 VAR="/opt/gridlabd"
 if test ! -e "$VAR/bin"; then
 	mkdir -p $VAR || ( sudo mkdir -p $VAR && sudo chown ${USER:-root} $VAR )
-	mkdir -p $VAR/src || (echo "$0: Could not make $VAR/src, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/src/bin || (echo "$0: Could not make $VAR/src/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 	mkdir -p $VAR/bin || (echo "$0: Could not make $VAR/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 fi
 
-export PATH=$VAR/bin:$VAR/src:$PATH
+export PATH=$VAR/bin:$VAR/src/bin:$PATH
 # setup logging
 LOG="$VAR/install.log"
 function log()
