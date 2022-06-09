@@ -391,6 +391,7 @@ if [ "$QUICK" == "no" ]; then
 		require libtoolize
 		run libtoolize
 	fi
+	echo "$PATH"
 	require autoscan
 	run autoscan
 fi
