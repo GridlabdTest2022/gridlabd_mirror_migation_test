@@ -379,6 +379,7 @@ if [ "$CHECK" == "yes" ]; then
 	fi
 fi
 
+export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH
 # run autoconf
 if [ "$QUICK" == "no" ]; then
 	if [ ! -f "build-aux/ltmain.sh" ]; then
