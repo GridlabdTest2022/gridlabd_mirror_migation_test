@@ -71,9 +71,6 @@ function error()
 # check for commands that absolutely necessary to proceed
 function require()
 {
-	echo "$PATH"
-	$1 ${2:---version}
-	$1 --version
 	$1 ${2:---version} > /dev/null 2>&1 || error "$1 is required"
 }
 
