@@ -71,6 +71,7 @@ function error()
 # check for commands that absolutely necessary to proceed
 function require()
 {
+	$1 ${2:---version}
 	$1 ${2:---version} > /dev/null 2>&1 || error "$1 is required"
 }
 
@@ -384,7 +385,6 @@ if [ "$CHECK" == "yes" ]; then
 	fi
 fi
 
-export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH
 # run autoconf
 if [ "$QUICK" == "no" ]; then
 	if [ ! -f "build-aux/ltmain.sh" ]; then
