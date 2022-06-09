@@ -3,7 +3,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # install homebrew
     brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
-    export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+    export PATH=/$(brew --prefix)/bin:/$(brew --prefix)/sbin:$PATH
     brew update-reset
     brew doctor
 
