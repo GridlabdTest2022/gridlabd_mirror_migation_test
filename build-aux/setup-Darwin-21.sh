@@ -35,4 +35,4 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # subversion cli
     brew install svn
 
-cp -RP /opt/homebrew/bin /opt/gridlabd/src
+ln -s /opt/homebrew/bin/* /opt/gridlabd/src/bin
