@@ -12,8 +12,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
     brew install autoconf automake libtool gnu-sed gawk
 
     # Update symlinks in the gridlabd bin
-    [ ! -e /opt/gridlabd/bin/sed ] && ln -s /opt/homebrew/bin/gsed /opt/gridlabd/bin/sed
-    [ ! -e /opt/gridlabd/bin/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /opt/gridlabd/bin/libtoolize
+    [ ! -e /opt/gridlabd/src/sed ] && ln -s /opt/homebrew/bin/gsed /opt/gridlabd/src/sed
+    [ ! -e /opt/gridlabd/src/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /opt/gridlabd/src/libtoolize
 
 # install python3
     brew install python3
@@ -24,7 +24,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # docs generators
     brew install mono
     brew install naturaldocs
-    ln -s /opt/homebrew/bin/naturaldocs /opt/gridlabd/bin/natural_docs
+    ln -s /opt/homebrew/bin/naturaldocs /opt/gridlabd/src/natural_docs
 
     brew install doxygen
 
