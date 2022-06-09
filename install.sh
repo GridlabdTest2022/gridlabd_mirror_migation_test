@@ -25,6 +25,11 @@ if test ! -e "$VAR/bin"; then
 	mkdir -p $VAR/bin || (echo "$0: Could not make $VAR/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 fi
 
+if ! grep -q '/opt/gridlabd/bin' "$HOME/.bashrc"; then
+    touch "$HOME/.bashrc"
+    echo "export PATH=$VAR/bin:$PATH" >> $HOME/.bashrc
+fi
+
 export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH
 # setup logging
 LOG="$VAR/install.log"
