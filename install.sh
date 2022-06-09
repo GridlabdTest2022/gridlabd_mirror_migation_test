@@ -25,7 +25,7 @@ if test ! -e "$VAR/bin"; then
 	mkdir -p $VAR/bin || (echo "$0: Could not make $VAR/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 fi
 
-export PATH=$VAR/bin:$VAR/src/bin:$PATH
+export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH
 # setup logging
 LOG="$VAR/install.log"
 function log()

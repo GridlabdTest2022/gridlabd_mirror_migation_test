@@ -567,7 +567,7 @@ AM_CONDITIONAL([SUFFIX],[test ! "x$SUFFIX" = "xno"] )
 ###############################################################################
 
 VERSION_NAME=$(build-aux/version.sh --name)
-PREFIX=/usr/local/opt/gridlabd
+PREFIX=/opt/gridlabd
 DSTDIR=$PREFIX/$VERSION_NAME
 BINDIR=$DSTDIR/bin
 LIBDIR=$DSTDIR/lib/gridlabd

@@ -12,8 +12,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
     brew install autoconf automake libtool gnu-sed gawk
 
     # Update symlinks in the gridlabd bin
-    [ ! -e /opt/gridlabd/bin/sed ] && ln -s $(brew --prefix)/bin/gsed /opt/gridlabd/bin/sed
-    [ ! -e /opt/gridlabd/bin/libtoolize ] && ln -s $(brew --prefix)/bin/glibtoolize /opt/gridlabd/bin/libtoolize
+    [ ! -e /opt/gridlabd/bin/sed ] && ln -s /opt/homebrew/bin/gsed /opt/gridlabd/bin/sed
+    [ ! -e /opt/gridlabd/bin/libtoolize ] && ln -s /opt/homebrew/bin/glibtoolize /opt/gridlabd/bin/libtoolize
 
 # install python3
     brew install python3
