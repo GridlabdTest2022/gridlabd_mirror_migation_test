@@ -25,6 +25,7 @@ fi
 
 # mdbtools
     brew install mdbtools
+    pip3 install matplotlib pandas numpy networkx Pillow
 
 # docs generators
     brew install mono
