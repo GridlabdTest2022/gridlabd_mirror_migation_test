@@ -25,21 +25,7 @@ fi
 
 # mdbtools
     brew install mdbtools
-
-# openblas and installing dependencies with openblas. 
-# This is to enable things to actually build properly on M1 macs. 
-    brew install openblas
-
-    pip3 install networkx 
-
-    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install cython --no-use-pep517
-    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install numpy --no-use-pep517
-    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install pandas --no-use-pep517
-    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install pybind11 --no-use-pep517
-    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install scipy --no-use-pep517
-    brew install libjpeg zlib
-    python3 -m pip install pillow
-    python3 -m pip install matplotlib
+    pip3 install matplotlib pandas numpy networkx Pillow
 
 # docs generators
     brew install mono
