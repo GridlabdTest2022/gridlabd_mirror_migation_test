@@ -29,7 +29,8 @@ fi
 # openblas and installing dependencies with openblas. 
 # This is to enable things to actually build properly on M1 macs. 
     brew install openblas
-    /opt/homebrew/opt/openblas pip3 install matplotlib pandas numpy networkx Pillow
+    OPENBLAS="/opt/homebrew/opt/openblas" MACOSX_DEPLOYMENT_TARGET=11.1 python3 -m pip install numpy --no-use-pep517
+    pip3 install matplotlib pandas networkx Pillow
 
 # docs generators
     brew install mono
