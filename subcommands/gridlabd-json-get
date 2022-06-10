@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/opt/gridlabd/src/bin/python3
 
 import sys
 import json
