@@ -29,7 +29,8 @@ fi
 
 # The original scikit-learn at 0.24.2 CANNOT install on the m1 mac. Period. Use 1.1.1 now.
 # Reason being, is that it requires a version of NumPy that is incompatible with the m1 mac.
-# updated in requirements.txt. 
+# updated in requirements.txt. Same goes for scipy 1.6.2.
+    brew install gdal
 
 # docs generators
     brew install mono
