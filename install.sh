@@ -30,6 +30,10 @@ if ! grep -q "$VAR/bin" "$HOME/.bashrc"; then
     echo "export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH" >> $HOME/.bashrc
 fi
 
+if ! grep -q "$VAR/bin" "/etc/profile"; then
+    echo "export PATH=$VAR/bin:$PATH" >> /etc/profile
+fi
+
 export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:$PATH
 # setup logging
 LOG="$VAR/install.log"

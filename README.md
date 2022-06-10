@@ -84,7 +84,7 @@ To rebuild the source code and install again, use the `make system` command.  Yo
 
 If you have modified the branch name or version information, you must reconfigure your build using the `make reconfigure` command before using `make system`.
 
-Each build of HiPAS GridLAB-D will be installed in `/usr/local/opt/gridlabd`. Links to the active version are added to the `/usr/local/bin` folder, so this folder must be included in the path for all users, e.g., as specified in `/etc/profile` or `/etc/profile.d`. Additional links are created in `/usr/local/lib` and `/usr/local/share`, as needed. 
+Each build of HiPAS GridLAB-D will be installed in `/opt/gridlabd/opt/gridlabd`. Links to the active version are added to the `/usr/local/bin` folder, so this folder must be included in the path for all users, e.g., as specified in `/etc/profile` or `/etc/profile.d`. Additional links are created in `/usr/local/lib` and `/usr/local/share`, as needed. 
 
 You may use the `gridlabd version` command to manage which version is active on the system. See the [`gridlabd version`](http://docs.gridlabd.us/index.html?owner=hipas&project=gridlabd&branch=master&folder=/Subcommand&doc=/Subcommand/Version.md) command for details.
 
