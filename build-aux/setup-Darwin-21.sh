@@ -7,6 +7,11 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
     brew update-reset
     brew doctor
 
+echo "$1"
+if ! grep -q "$1/bin" "$HOME/.zshrc"; then
+    touch "$HOME/.zshrc"
+    echo "export PATH=$1/bin:$1/src:$1/src/bin:$PATH" >> $HOME/.zshrc
+fi
 # build tools
 
     brew install autoconf automake libtool gnu-sed gawk
