@@ -25,7 +25,11 @@ fi
 
 # mdbtools
     brew install mdbtools
-    pip3 install matplotlib pandas numpy networkx Pillow
+
+# openblas and installing dependencies with openblas. 
+# This is to enable things to actually build properly on M1 macs. 
+    brew install openblas
+    $(brew --prefix openblas) pip3 install matplotlib pandas numpy networkx Pillow
 
 # docs generators
     brew install mono
