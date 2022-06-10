@@ -32,6 +32,10 @@ fi
 # updated in requirements.txt. Same goes for scipy 1.6.2.
     brew install gdal
 
+# Install pyproj manually due to error building final wheel
+    brew install proj
+    pip3 install pyproj
+
 # docs generators
     brew install mono
     brew install naturaldocs
