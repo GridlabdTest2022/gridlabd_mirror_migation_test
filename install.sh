@@ -420,7 +420,7 @@ if [ "$PARALLEL" == "yes" ]; then
 fi
 
 # build everything
-export PATH=$VAR/bin:$VAR/src:$VAR/src/bin
+export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 run make -j$((3*$NPROC)) system
 
 if [ "$DOCS" == "yes" ]; then
