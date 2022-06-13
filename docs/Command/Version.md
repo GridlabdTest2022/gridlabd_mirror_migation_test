@@ -50,7 +50,7 @@ Outputs the branch name, e.g., `master`.
 
 ### `install`
 
-Outputs the installation path, e.g., `/usr/local/opt/gridlabd/4.2.0-191115-master`.
+Outputs the installation path, e.g., `/opt/gridlabd/opt/gridlabd/4.2.0-191115-master`.
 
 ### `name`
 

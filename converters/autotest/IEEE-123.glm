@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 // filename... /tmp/IEEE-123.glm
 // workdir.... /Users/dchassin/github/gridlabd-models/ieee123
-// command.... /usr/local/opt/gridlabd/4.2.20-210424-develop_add_converter_html/bin/gridlabd.bin -C model/ieee123.glm -o /tmp/IEEE-123.glm
+// command.... /opt/gridlabd/opt/gridlabd/4.2.20-210424-develop_add_converter_html/bin/gridlabd.bin -C model/ieee123.glm -o /tmp/IEEE-123.glm
 // created.... Sat Apr 24 16:24:42 2021
 // user....... dchassin
 // host....... (null)
@@ -69,7 +69,7 @@ module powerflow {
 	solver_profile_filename "solver_nr_profile.csv";
 	solver_profile_headers_included "TRUE";
 	solver_headers "timestamp,duration[microsec],iteration,bus_count,branch_count,error";
-	solver_py_config "/usr/local/var/gridlabd/solver_py.conf";
+	solver_py_config "/opt/gridlabd/var/gridlabd/solver_py.conf";
 	solver_dump_enable "FALSE";
 	violation_record "";
 	violation_count "0";

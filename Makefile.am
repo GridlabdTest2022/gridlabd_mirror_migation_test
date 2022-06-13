@@ -93,7 +93,7 @@ help:
 	@echo "  system         - Build and install $(PACKAGE) to the system folders"
 	@echo "  install-strip  - Same as install, but follow by stripping debug symbols"
 	@echo "  install-clean  - Same as install-system, but runs distclean, autoreconf, and configure first"
-	@echo "  install-system - Same as install, but links target to /usr/local for all system users"
+	@echo "  install-system - Same as install, but links target to /opt/gridlabd for all system users"
 	@echo "  uninstall      - Erase files installed by 'make install'"
 	@echo ""
 	@echo "Cleaning targets:"
@@ -174,9 +174,9 @@ $(scratchdir)/pkg: distdir # $(scratchdir)/.xerces.stamp
 	test ! -e $@ || rm -rf $@
 	test -d $@/source || mkdir -p $@/source
 	cd $(distdir) && $(PWD)/configure && make install DESTDIR=$(CURDIR)/$@/source
-	cd $@ && mkdir -p climate-data/usr/local/lib/gridlabd devel/usr/local/lib/gridlabd # libxerces-c/usr/lib
-	mv $@/source/usr/local/include $@/devel/usr/local/include
-	mv $@/source/usr/local/lib/gridlabd/*.la $@/devel/usr/local/lib/gridlabd/
+	cd $@ && mkdir -p climate-data/opt/gridlabd/lib/gridlabd devel/opt/gridlabd/lib/gridlabd # libxerces-c/usr/lib
+	mv $@/source/opt/gridlabd/include $@/devel/opt/gridlabd/include
+	mv $@/source/opt/gridlabd/lib/gridlabd/*.la $@/devel/opt/gridlabd/lib/gridlabd/
 	$(am__remove_distdir)
 
 $(scratchdir)/$(PACKAGE_TARNAME).mpkg: $(scratchdir)/pkg

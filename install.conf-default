@@ -39,15 +39,16 @@ FORCE="no"
 INDEX="yes"
 
 #
-# Set the install prefix. By default most system use "/usr/local" for add-on software
-# like GridLAB-D. Due to arm and new permissions restrictions, a safer default is "/opt".
+# Set the install prefix. By default most system use "/opt/gridlabd" for add-on software
+# like GridLAB-D. Due to arm strongly enforcing the FHS standard, a safer default is "/opt"
+# to allow non-admin users to build and use the tool.
 # The prefix is changed using the "--prefix <path>" option.
 #
 PREFIX="/opt/gridlabd"
 
 #
 # Enable linking of gridlabd command. By default the most recent install is linked
-# into a gridlabd command in /usr/local/bin. This option is disable by the "--no-link" 
+# into a gridlabd command in /opt/gridlabd/bin. This option is disable by the "--no-link" 
 # option.
 #
 LINK="yes"

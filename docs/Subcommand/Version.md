@@ -17,10 +17,10 @@ Shell:
 
 # Description
 
-When GridLAB-D is built it is installed into a folder named `/usr/local/opt/gridlabd/<MAJOR>.<MINOR>.<PATCH>-<BUILD>-<BRANCH>`.  Users may select which version they are using by modifying the `PATH` environment variable to include the desired version's `bin` folder, e.g.
+When GridLAB-D is built it is installed into a folder named `/opt/gridlabd/opt/gridlabd/<MAJOR>.<MINOR>.<PATCH>-<BUILD>-<BRANCH>`.  Users may select which version they are using by modifying the `PATH` environment variable to include the desired version's `bin` folder, e.g.
 
 ~~~
-bash$ export PATH=/usr/local/opt/gridlabd/<MAJOR>.<MINOR>.<PATCH>-<BUILD>-<BRANCH>:$PATH
+bash$ export PATH=/opt/gridlabd/opt/gridlabd/<MAJOR>.<MINOR>.<PATCH>-<BUILD>-<BRANCH>:$PATH
 ~~~
 
 However, this method does not set the version for all users on the system. The `gridlabd version` command manages the system version of GridLAB-D.  

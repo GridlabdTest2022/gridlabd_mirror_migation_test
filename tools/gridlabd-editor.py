@@ -22,7 +22,7 @@ def stderr(*msg,file=sys.stderr):
 #
 # GridLAB-D link
 #
-result = subprocess.run("/usr/local/bin/gridlabd --version=json".split(),capture_output=True)
+result = subprocess.run("/opt/gridlabd/bin/gridlabd --version=json".split(),capture_output=True)
 if not result:
     stderr("ERROR: GridLAB-D is not installed on this system")
     quit(-1)

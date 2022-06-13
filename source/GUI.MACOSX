@@ -66,7 +66,7 @@ Compiling gnuplot
 Once all that is done you should be ok to compile gnuplot. Download and extract the version 4.4 source code archive http://gnuplot.sourceforge.net/development/binaries/. By default, gnuplot will install to /usr/local/bin. I have added that directory to my path. But if you want it to install to /usr/bin then you can use the --exec-prefix=/usr configuration option, as shown below.
 
 bash$ ./configure â€“exec-prefix=/usr
-bash$ make
+bash$ make 
 bash$ sudo make install
 
 The following sections are copied verbatim from the original document: I haven't tested it with 10.6. Please send me your comments with respect to fonts on 10.6 and I will edit this document accordingly.
@@ -76,7 +76,7 @@ So I compiled gd and gnuplot successfully with truetype support, but gnuplot can
 
 export GDFONTPATH=~/.fonts
 
-Then I copied the fonts from the /usr/local/fonts/truetype directory on my linux box to ~/.fonts on my Mac Mini.
+Then I copied the fonts from the /usr/local/fonts/truetype directory on my linux box to ~/.fonts on my Mac Mini. 
 
 My gnuplot installation is working fairly well now, except I might go back and recompile freetype with kerning.
 Help!

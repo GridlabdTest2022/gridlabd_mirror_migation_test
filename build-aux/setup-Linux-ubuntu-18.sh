@@ -13,8 +13,8 @@ apt-get -q install python3.7 -y
 apt-get -q install python3-pip -y
 apt-get -q install python3.7-dev -y
 echo '#/bin/bash
-/usr/bin/python3-config $*' > /usr/local/bin/python3-config
-chmod +x /usr/local/bin/python3-config
+/usr/bin/python3-config $*' > /opt/gridlabd/bin/python3-config
+chmod +x /opt/gridlabd/bin/python3-config
 # change default python3 to python3.7 for validation
 update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
 
@@ -39,13 +39,13 @@ apt-get -q install mdbtools -y
 # doxgygen
 apt-get -q install gawk -y
 if [ ! -x /usr/bin/doxygen ]; then
-	if [ ! -d /usr/local/src/doxygen ]; then
-		git clone https://github.com/doxygen/doxygen.git /usr/local/src/doxygen
+	if [ ! -d /opt/gridlabd/src/doxygen ]; then
+		git clone https://github.com/doxygen/doxygen.git /opt/gridlabd/src/doxygen
 	fi
-	if [ ! -d /usr/local/src/doxygen/build ]; then
-		mkdir /usr/local/src/doxygen/build
+	if [ ! -d /opt/gridlabd/src/doxygen/build ]; then
+		mkdir /opt/gridlabd/src/doxygen/build
 	fi
-	cd /usr/local/src/doxygen/build
+	cd /opt/gridlabd/src/doxygen/build
 	cmake -G "Unix Makefiles" ..
 	make
 	make install
@@ -62,15 +62,15 @@ if [ ! -f /usr/bin/mono ]; then
 fi
 
 # natural_docs
-if [ ! -x /usr/local/bin/natural_docs ]; then
-	cd /usr/local
+if [ ! -x /opt/gridlabd/bin/natural_docs ]; then
+	cd /opt/gridlabd
 	curl https://www.naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip > natural_docs.zip
 	unzip -qq natural_docs
 	rm -f natural_docs.zip
 	mv Natural\ Docs natural_docs
 	echo '#!/bin/bash
-mono /usr/local/natural_docs/NaturalDocs.exe \$*' > /usr/local/bin/natural_docs
-	chmod a+x /usr/local/bin/natural_docs
+mono /opt/gridlabd/natural_docs/NaturalDocs.exe \$*' > /opt/gridlabd/bin/natural_docs
+	chmod a+x /opt/gridlabd/bin/natural_docs
 fi
 
 # converter support

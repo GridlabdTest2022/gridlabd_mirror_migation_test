@@ -173,7 +173,7 @@ Note: that you cannot use `command` after initialization is completed.
 
 ## `load(file)`
 
-The `load` method processes a file as if it were passed using the `command(file)` method.  Input files may be `.glm` or `.py` files.  All other file formats are supported provided there is a converter from that format to `.glm` installed in the `/usr/local/share/gridlabd` folder.
+The `load` method processes a file as if it were passed using the `command(file)` method.  Input files may be `.glm` or `.py` files.  All other file formats are supported provided there is a converter from that format to `.glm` installed in the `/opt/gridlabd/share/gridlabd` folder.
 
 ## `start(mode)`
 
@@ -249,7 +249,7 @@ Note: the `set_value` command only works after the initialization has started.
 
 ## `save(file)` 
 
-Saves the full model to the file.  The currently supported formats are `.glm`, `.xml`, and `.json`.  For GLM files, the save content is controlled by the [[/glm_save_options]] global variable. Other formats are supported if there is a converter from JSON to that format installed in the `/usr/local/share/gridlabd` folder.
+Saves the full model to the file.  The currently supported formats are `.glm`, `.xml`, and `.json`.  For GLM files, the save content is controlled by the [[/glm_save_options]] global variable. Other formats are supported if there is a converter from JSON to that format installed in the `/opt/gridlabd/share/gridlabd` folder.
 
 # Example
 

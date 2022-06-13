@@ -53,7 +53,7 @@ E_FAILED = 3
 
 shared = os.getenv("GLD_ETC")
 if not shared:
-	shared = "/usr/local/share/gridlabd/"
+	shared = "/opt/gridlabd/share/gridlabd/"
 elif shared[-1] != '/':
 	shared += '/'
 

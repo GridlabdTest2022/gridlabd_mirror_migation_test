@@ -64,16 +64,16 @@ The option installation command can be passed with `--use-docker` command. For e
 ~~~
 host% sudo gridlabd/install.sh --use-docker debian --branch develop -v -t --parallel -i
 ~~~
-The above command creates a docker image named `slacgismo/gridlabd:latest` from `develop` branch and the base image of docker is `debian:11`. The default installation log file is located in `/usr/local/var/gridlabd/install.log`
+The above command creates a docker image named `slacgismo/gridlabd:latest` from `develop` branch and the base image of docker is `debian:11`. The default installation log file is located in `/opt/gridlabd/var/gridlabd/install.log`
 ### AWS EC2 Installation 
 1) Set the path variable
 ~~~
 host% sudo su
-host% export PATH=/usr/local/bin:$PATH
+host% export PATH=/opt/gridlabd/bin:$PATH
 ~~~
 2) Change work dictionary and clone GitHub repository
 ~~~
-host% cd /usr/local/src
+host% cd /opt/gridlabd/src
 host% git clone https://source.gridlabd.us/ gridlabd
 ~~~
 3) Run installation 
@@ -84,11 +84,11 @@ To rebuild the source code and install again, use the `make system` command.  Yo
 
 If you have modified the branch name or version information, you must reconfigure your build using the `make reconfigure` command before using `make system`.
 
-Each build of HiPAS GridLAB-D will be installed in `/opt/gridlabd/opt/gridlabd`. Links to the active version are added to the `/usr/local/bin` folder, so this folder must be included in the path for all users, e.g., as specified in `/etc/profile` or `/etc/profile.d`. Additional links are created in `/usr/local/lib` and `/usr/local/share`, as needed. 
+Each build of HiPAS GridLAB-D will be installed in `/opt/gridlabd/opt/gridlabd`. Links to the active version are added to the `/opt/gridlabd/bin` folder, so this folder must be included in the path for all users, e.g., as specified in `/etc/profile` or `/etc/profile.d`. Additional links are created in `/opt/gridlabd/lib` and `/opt/gridlabd/share`, as needed. 
 
 You may use the `gridlabd version` command to manage which version is active on the system. See the [`gridlabd version`](http://docs.gridlabd.us/index.html?owner=hipas&project=gridlabd&branch=master&folder=/Subcommand&doc=/Subcommand/Version.md) command for details.
 
-You use `make install` to build only. To use an inactive build run the `gridlabd` command of that build instead of running the active version.  For example, if you only built `4.2.13-201019-develop` then you can run `/usr/local/opt/gridlabd/4.2.13-201019-develop/bin/gridlabd` to run it instead of running `/usr/local/bin/gridlabd`.
+You use `make install` to build only. To use an inactive build run the `gridlabd` command of that build instead of running the active version.  For example, if you only built `4.2.13-201019-develop` then you can run `/opt/gridlabd/opt/gridlabd/4.2.13-201019-develop/bin/gridlabd` to run it instead of running `/opt/gridlabd/bin/gridlabd`.
 
 Before using a build of gridlabd, you should always validate it using `gridlabd --validate` in the root folder of the source tree. Be careful to verify that the branch of the source tree matches the branch of the version you are running. This is not checked automatically.
 
@@ -98,32 +98,32 @@ Generally, running HiPAS GridLAB-D on Docker is preferred because it is usually 
 
 1) Open PowerShell as administrator
 2) Run `wsl` (the Debian distro is preferred, but Ubuntu should work also)
-3) Change directory to `/usr/local/src`
+3) Change directory to `//local/src`
 4) Update `apt` and install `git`
 ~~~
-  root@host:/usr/local/src# apt update -y
-  root@host:/usr/local/src# apt install git -y
+  root@host:/opt/gridlabd/src# apt update -y
+  root@host:/opt/gridlabd/src# apt install git -y
 ~~~
 5) Clone `gridlabd` and change to the `gridlabd` directory
 ~~~
-  root@host:/usr/local/src# git clone https://source.gridlabd.us/
-  root@host:/usr/local/src# cd gridlabd
+  root@host:/opt/gridlabd/src# git clone https://source.gridlabd.us/
+  root@host:/opt/gridlabd/src# cd gridlabd
 ~~~
 6) Run `autoconf`
 ~~~
-  root@host:/usr/local/src/gridlabd# autoreconf -isf
+  root@host:/opt/gridlabd/src/gridlabd# autoreconf -isf
 ~~~
 7) Run `configure`
 ~~~
-  root@host:/usr/local/src/gridlabd# ./configure
+  root@host:/opt/gridlabd/src/gridlabd# ./configure
 ~~~
 8) Make `system`
 ~~~
-  root@host:/usr/local/src/gridlabd# make system
+  root@host:/opt/gridlabd/src/gridlabd# make system
 ~~~
 9) Validate `gridlabd`
 ~~~
-  root@host:/usr/local/src/gridlabd# gridlabd --validate
+  root@host:/opt/gridlabd/src/gridlabd# gridlabd --validate
 ~~~
 
 ## Building and Debugging

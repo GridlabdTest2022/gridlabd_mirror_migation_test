@@ -12,32 +12,32 @@ yum -q install which -y
 yum -q install svn -y
 
 # python3 support needed as of 4.2
-if [ ! -x /usr/local/bin/python3 -o "$(/usr/local/bin/python3 --version)" != "Python 3.9.6" ]; then
+if [ ! -x /opt/gridlabd/bin/python3 -o "$(/opt/gridlabd/bin/python3 --version)" != "Python 3.9.6" ]; then
 	echo "install python 3.9.6"	
 	
-	cd /usr/local/src
+	cd /opt/gridlabd/src
 	yum install gcc openssl-devel bzip2-devel libffi-devel zlib-devel  xz-devel  -y
 	curl https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz | tar xz
 	cd Python-3.9.6
-	./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
+	./configure --prefix=/opt/gridlabd --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
 	make -j $(nproc)
 	make altinstall
 	
-	ln -sf /usr/local/bin/python3.9 /usr/local/bin/python3
-	ln -sf /usr/local/bin/python3.9-config /usr/local/bin/python3-config
-	ln -sf /usr/local/bin/pydoc3.9 /usr/local/bin/pydoc
-	ln -sf /usr/local/bin/idle3.9 /usr/local/bin/idle
-	ln -sf /usr/local/bin/pip3.9 /usr/local/bin/pip3
+	ln -sf /opt/gridlabd/bin/python3.9 /opt/gridlabd/bin/python3
+	ln -sf /opt/gridlabd/bin/python3.9-config /opt/gridlabd/bin/python3-config
+	ln -sf /opt/gridlabd/bin/pydoc3.9 /opt/gridlabd/bin/pydoc
+	ln -sf /opt/gridlabd/bin/idle3.9 /opt/gridlabd/bin/idle
+	ln -sf /opt/gridlabd/bin/pip3.9 /opt/gridlabd/bin/pip3
 	# install python packages
-	/usr/local/bin/python3 -m pip install --upgrade pip
-	/usr/local/bin/python3 -m pip install mysql-connector matplotlib Pillow pandas numpy networkx pytz pysolar PyGithub scikit-learn xlrd 
-	/usr/local/bin/python3 -m pip install IPython censusdata
+	/opt/gridlabd/bin/python3 -m pip install --upgrade pip
+	/opt/gridlabd/bin/python3 -m pip install mysql-connector matplotlib Pillow pandas numpy networkx pytz pysolar PyGithub scikit-learn xlrd 
+	/opt/gridlabd/bin/python3 -m pip install IPython censusdata
 
 # mdbtools
-if [ ! -x /usr/local/bin/mdb-schema ]; then
+if [ ! -x /opt/gridlabd/bin/mdb-schema ]; then
 	echo "install mdbtools"
 	
-	cd /usr/local/src
+	cd /opt/gridlabd/src
 	git clone https://github.com/brianb/mdbtools.git mdbtools
 	cd mdbtools
 	autoreconf -isf
@@ -52,13 +52,13 @@ fi
 
 # doxygen
 if [ ! -x /usr/bin/doxygen ]; then
-	if [ ! -d /usr/local/src/doxygen ]; then
-		git clone https://github.com/doxygen/doxygen.git /usr/local/src/doxygen --depth 1
+	if [ ! -d /opt/gridlabd/src/doxygen ]; then
+		git clone https://github.com/doxygen/doxygen.git /opt/gridlabd/src/doxygen --depth 1
 	fi
-	if [ ! -d /usr/local/src/doxygen/build ]; then
-		mkdir /usr/local/src/doxygen/build
+	if [ ! -d /opt/gridlabd/src/doxygen/build ]; then
+		mkdir /opt/gridlabd/src/doxygen/build
 	fi
-	cd /usr/local/src/doxygen/build
+	cd /opt/gridlabd/src/doxygen/build
 	cmake -G "Unix Makefiles" ..
 	make
 	make install
@@ -72,14 +72,14 @@ if [ ! -f /usr/bin/mono ]; then
 fi
 
 # natural_docs
-if [ ! -x /usr/local/bin/natural_docs ]; then
-	cd /usr/local
+if [ ! -x /opt/gridlabd/bin/natural_docs ]; then
+	cd /opt/gridlabd
 	curl -s https://www.naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip > natural_docs.zip
 	unzip -qq natural_docs
 	rm -f natural_docs.zip
 	mv Natural\ Docs natural_docs
 	echo '#!/bin/bash
-mono /usr/local/natural_docs/NaturalDocs.exe \$*' > /usr/local/bin/natural_docs
-	chmod a+x /usr/local/bin/natural_docs
+mono /opt/gridlabd/natural_docs/NaturalDocs.exe \$*' > /opt/gridlabd/bin/natural_docs
+	chmod a+x /opt/gridlabd/bin/natural_docs
 fi
 

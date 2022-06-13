@@ -21,21 +21,21 @@ yum -q --disablerepo="*" --enablerepo="epel" install python36 -y
 yum -q install python36 python36-devel python36-pip python36-tkinter -y
 [ -f /usr/bin/python3 ] || ln -s /usr/bin/python3.6 /usr/bin/python3
 pip3 --quiet install --upgrade pip
-ln -s /usr/local/bin/pip3 /usr/bin/pip3
-ln -s /usr/local/bin/python3 /usr/bin/python3
-echo '#/bin/bash' > /usr/local/bin/python3-config
-echo '/usr/bin/python3-config $*' >> /usr/local/bin/python3-config
-chmod +x /usr/local/bin/python3-config
-/usr/local/bin/pip3 --quiet install matplotlib pandas mysql-connector Pillow
+ln -s /opt/gridlabd/bin/pip3 /usr/bin/pip3
+ln -s /opt/gridlabd/bin/python3 /usr/bin/python3
+echo '#/bin/bash' > /opt/gridlabd/bin/python3-config
+echo '/usr/bin/python3-config $*' >> /opt/gridlabd/bin/python3-config
+chmod +x /opt/gridlabd/bin/python3-config
+/opt/gridlabd/bin/pip3 --quiet install matplotlib pandas mysql-connector Pillow
 
 # doxygen
 yum -q install gawk -y
 if [ ! -x /usr/bin/doxygen ]; then
-	if [ ! -d /usr/local/src/doxygen ]; then
-		git clone https://github.com/doxygen/doxygen.git /usr/local/src/doxygen
+	if [ ! -d /opt/gridlabd/src/doxygen ]; then
+		git clone https://github.com/doxygen/doxygen.git /opt/gridlabd/src/doxygen
 	fi
-	if [ ! -d /usr/local/src/doxygen/build ]; then
-		mkdir /usr/local/src/doxygen/build
+	if [ ! -d /opt/gridlabd/src/doxygen/build ]; then
+		mkdir /opt/gridlabd/src/doxygen/build
 	fi
 	cd /tmp/doxygen/build
 	cmake -G "Unix Makefiles" ..
@@ -51,15 +51,15 @@ if [ ! -f /usr/bin/mono ]; then
 fi
 
 # natural_docs
-if [ ! -x /usr/local/bin/natural_docs ]; then
-	cd /usr/local
+if [ ! -x /opt/gridlabd/bin/natural_docs ]; then
+	cd /opt/gridlabd
 	curl https://www.naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip > natural_docs.zip
 	unzip -qq natural_docs
 	rm -f natural_docs.zip
 	mv Natural\ Docs natural_docs
 	echo '#!/bin/bash
-mono /usr/local/natural_docs/NaturalDocs.exe \$*' > /usr/local/bin/natural_docs
-	chmod a+x /usr/local/bin/natural_docs
+mono /opt/gridlabd/natural_docs/NaturalDocs.exe \$*' > /opt/gridlabd/bin/natural_docs
+	chmod a+x /opt/gridlabd/bin/natural_docs
 fi
 
 # converter support

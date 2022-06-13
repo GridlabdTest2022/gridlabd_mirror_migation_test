@@ -18,7 +18,7 @@ The geodata command gathers and joins geographic data. The geodata subcommand us
 
 In general geodata is used to acquire geographic information at a location or along a specified path. This information includes ground elevation, vegetation characteristics, weather, census, building, and transportation data.  The specific data sets and their origins are described in the DATASETS section below.
 
-Some datasets require data acquired from online source. The default cache folder is /usr/local/share/gridlabd/geodata.
+Some datasets require data acquired from online source. The default cache folder is /opt/gridlabd/share/gridlabd/geodata.
 
 System, user, and local configurations may be saved.  The default config file `$HOME/.gridlabd/geodata-config`.
 

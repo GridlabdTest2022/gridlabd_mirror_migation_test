@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set the path to use during installation
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/opt/gridlabd/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # install is being upgraded to use an entirely self-contained package system. 
 
@@ -15,14 +15,18 @@ else
 	sudo --version >/dev/null 2>&1 || (echo "$0: sudo is required"; exit 1)
 fi
 
-# local folder, include a bin for gridlabd-specific binaries 
-# and src to link general installed binaries
-# sudo should only be needed once here to give rights to package directory
+# local folder, intended to be self-packaged structure that mirrors admin controlled /usr directories 
+# sudo should only be needed once here to give rights to package directory, if needed
+# 
 VAR="/opt/gridlabd"
 if test ! -e "$VAR/bin"; then
 	mkdir -p $VAR || ( sudo mkdir -p $VAR && sudo chown ${USER:-root} $VAR )
 	mkdir -p $VAR/src/bin || (echo "$0: Could not make $VAR/src/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
 	mkdir -p $VAR/bin || (echo "$0: Could not make $VAR/bin, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/lib || (echo "$0: Could not make $VAR/lib, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/share || (echo "$0: Could not make $VAR/share, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/var || (echo "$0: Could not make $VAR/var, confirm $VAR was made correctly and has user permissions."; exit 1)
+	mkdir -p $VAR/include || (echo "$0: Could not make $VAR/var, confirm $VAR was made correctly and has user permissions."; exit 1)
 fi
 
 if ! grep -q "$VAR/bin" "$HOME/.bashrc"; then
@@ -420,7 +424,7 @@ if [ "$PARALLEL" == "yes" ]; then
 fi
 
 # build everything
-export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$VAR/bin:$VAR/src:$VAR/src/bin:/opt/gridlabd/bin:/usr/bin:/bin:/usr/sbin:/sbin
 run make -j$((3*$NPROC)) system
 
 if [ "$DOCS" == "yes" ]; then

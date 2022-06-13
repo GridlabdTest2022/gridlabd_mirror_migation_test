@@ -24,34 +24,34 @@ apt-get -q install zlib1g-dev -y
 apt-get -q install mdbtools -y
 
 # install python 3.9
-if [ ! -x /usr/local/bin/python3 -o $(/usr/local/bin/python3 --version | cut -f-2 -d.) != "Python 3.9" ]; then
-	cd /usr/local/src
+if [ ! -x /opt/gridlabd/bin/python3 -o $(/opt/gridlabd/bin/python3 --version | cut -f-2 -d.) != "Python 3.9" ]; then
+	cd /opt/gridlabd/src
 	curl https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz | tar xz
 	cd Python-3.9.6
-	./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
+	./configure --prefix=/opt/gridlabd --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
 	make -j $(nproc)
 	make altinstall
-	ln -sf /usr/local/bin/python3.9 /usr/local/bin/python3
-	ln -sf /usr/local/bin/python3.9-config /usr/local/bin/python3-config
-	ln -sf /usr/local/bin/pydoc3.9 /usr/local/bin/pydoc
-	ln -sf /usr/local/bin/idle3.9 /usr/local/bin/idle
-	curl -sSL https://bootstrap.pypa.io/get-pip.py | /usr/local/bin/python3
+	ln -sf /opt/gridlabd/bin/python3.9 /opt/gridlabd/bin/python3
+	ln -sf /opt/gridlabd/bin/python3.9-config /opt/gridlabd/bin/python3-config
+	ln -sf /opt/gridlabd/bin/pydoc3.9 /opt/gridlabd/bin/pydoc
+	ln -sf /opt/gridlabd/bin/idle3.9 /opt/gridlabd/bin/idle
+	curl -sSL https://bootstrap.pypa.io/get-pip.py | /opt/gridlabd/bin/python3
 fi
 
 # install python libraries by validation
-/usr/local/bin/python3 pip -m install --upgrade pip
-/usr/local/bin/python3 pip -m install mysql-connector mysql-client matplotlib numpy pandas Pillow
+/opt/gridlabd/bin/python3 pip -m install --upgrade pip
+/opt/gridlabd/bin/python3 pip -m install mysql-connector mysql-client matplotlib numpy pandas Pillow
 
 # doxggen
 apt-get -q install gawk -y
 if [ ! -x /usr/bin/doxygen ]; then
-	if [ ! -d /usr/local/src/doxygen ]; then
-		git clone https://github.com/doxygen/doxygen.git /usr/local/src/doxygen
+	if [ ! -d /opt/gridlabd/src/doxygen ]; then
+		git clone https://github.com/doxygen/doxygen.git /opt/gridlabd/src/doxygen
 	fi
-	if [ ! -d /usr/local/src/doxygen/build ]; then
-		mkdir /usr/local/src/doxygen/build
+	if [ ! -d /opt/gridlabd/src/doxygen/build ]; then
+		mkdir /opt/gridlabd/src/doxygen/build
 	fi
-	cd /usr/local/src/doxygen/build
+	cd /opt/gridlabd/src/doxygen/build
 	cmake -G "Unix Makefiles" ..
 	make
 	make install
@@ -68,17 +68,17 @@ if [ ! -f /usr/bin/mono ]; then
 fi
 
 # natural_docs
-if [ ! -x /usr/local/bin/natural_docs ]; then
-	cd /usr/local
+if [ ! -x /opt/gridlabd/bin/natural_docs ]; then
+	cd /opt/gridlabd
 	curl https://www.naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip > natural_docs.zip
 	unzip -qq natural_docs
 	rm -f natural_docs.zip
 	mv Natural\ Docs natural_docs
 	echo '#!/bin/bash
-mono /usr/local/natural_docs/NaturalDocs.exe \$*' > /usr/local/bin/natural_docs
-	chmod a+x /usr/local/bin/natural_docs
+mono /opt/gridlabd/natural_docs/NaturalDocs.exe \$*' > /opt/gridlabd/bin/natural_docs
+	chmod a+x /opt/gridlabd/bin/natural_docs
 fi
 
 # converter support
-/usr/local/bin/python3 pip -m install networkx
+/opt/gridlabd/bin/python3 pip -m install networkx
 apt-get -q install mdbtools -y

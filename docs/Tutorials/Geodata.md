@@ -33,7 +33,7 @@ bash% gridlabd requirements
 
     
     Usage:   
-      /usr/local/opt/python@3.9/bin/python3.9 -m pip <command> [options]
+      /opt/gridlabd/opt/python@3.9/bin/python3.9 -m pip <command> [options]
     
     no such option: -r
 
@@ -2177,9 +2177,9 @@ bash% gridlabd geodata merge -D distance 37,-122 38,-122 --units=furlongs -d # i
 <div class="output stream stdout">
 
     Traceback (most recent call last):
-      File "/usr/local/opt/gridlabd/4.2.26-210820-develop_add_cyme_converter/bin/gridlabd-geodata", line 854, in merge
+      File "/opt/gridlabd/opt/gridlabd/4.2.26-210820-develop_add_cyme_converter/bin/gridlabd-geodata", line 854, in merge
         result = MODULE.apply(data,options,config,warning)
-      File "/usr/local/opt/gridlabd/4.2.26-210820-develop_add_cyme_converter/share/gridlabd/geodata_distance.py", line 119, in apply
+      File "/opt/gridlabd/opt/gridlabd/4.2.26-210820-develop_add_cyme_converter/share/gridlabd/geodata_distance.py", line 119, in apply
         raise Exception(f"unit '{options['units']}' is not recognized")
     Exception: unit 'furlongs' is not recognized
     DEBUG [geodata/distance]: merge(args=['37,-122', '38,-122', '--units=furlongs']) --> data = 

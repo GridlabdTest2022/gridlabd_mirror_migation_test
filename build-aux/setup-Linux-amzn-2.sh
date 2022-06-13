@@ -4,15 +4,15 @@
 
 # Set environment variable in EC2.
 # In order to set the environment variable permanently, the system needs to be rebooted after the first time run this code.
-# The other way around is to run `export PATH=/usr/local/bin:$PATH` before run `./install.sh` in the command line. 
+# The other way around is to run `export PATH=/opt/gridlabd/bin:$PATH` before run `./install.sh` in the command line. 
 # The temporary `PATH` will be generated and used for installation. 
-# The `PATH` will be set permanently because of running `echo "export PATH=/usr/local/bin:$PATH" >> /etc/profile.d/setVars.sh`
+# The `PATH` will be set permanently because of running `echo "export PATH=/opt/gridlabd/bin:$PATH" >> /etc/profile.d/setVars.sh`
 
-echo "export PATH=/usr/local/bin:$PATH" >> /etc/profile.d/setVars.sh && \
+echo "export PATH=/opt/gridlabd/bin:$PATH" >> /etc/profile.d/setVars.sh && \
 source /etc/profile.d/setVars.sh
 
-chmod -R 775 /usr/local
-chown -R root:adm /usr/local
+chmod -R 775 /opt/gridlabd
+chown -R root:adm /opt/gridlabd
 
 # Install needed system tools
 yum -q update -y ; 
@@ -25,23 +25,23 @@ yum -q install libcurl-devel -y
 yum -q install mdbtools -y
 
 # python3.9.x support needed as of 4.2
-if [ ! -x /usr/local/bin/python3 -o "$(/usr/local/bin/python3 --version | cut -f2 -d.)" != "Python 3.9" ]; then
+if [ ! -x /opt/gridlabd/bin/python3 -o "$(/opt/gridlabd/bin/python3 --version | cut -f2 -d.)" != "Python 3.9" ]; then
 	yum install openssl-devel bzip2-devel libffi-devel zlib-devel xz-devel -q -y
-	cd /usr/local/src
+	cd /opt/gridlabd/src
 	curl https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz | tar xz
 	cd Python-3.9.6
-	./configure --prefix=/usr/local --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
+	./configure --prefix=/opt/gridlabd --enable-optimizations --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions CFLAGS="-fPIC"
 	make -j $(nproc)
 	make altinstall
-	ln -sf /usr/local/bin/python3.9 /usr/local/bin/python3
-	ln -sf /usr/local/bin/python3.9-config /usr/local/bin/python3-config
-	ln -sf /usr/local/bin/pydoc3.9 /usr/local/bin/pydoc
-	ln -sf /usr/local/bin/idle3.9 /usr/local/bin/idle
-	ln -sf /usr/local/bin/pip3.9 /usr/local/bin/pip3
-	curl -sSL https://bootstrap.pypa.io/get-pip.py | /usr/local/bin/python3
-	#/usr/local/bin/python3 pip -m install mysql-connector mysql-client matplotlib numpy pandas Pillow networkx
-	/usr/local/bin/python3 -m pip install matplotlib Pillow pandas numpy networkx pytz pysolar PyGithub scikit-learn xlrd boto3
-	/usr/local/bin/python3 -m pip install IPython censusdata
+	ln -sf /opt/gridlabd/bin/python3.9 /opt/gridlabd/bin/python3
+	ln -sf /opt/gridlabd/bin/python3.9-config /opt/gridlabd/bin/python3-config
+	ln -sf /opt/gridlabd/bin/pydoc3.9 /opt/gridlabd/bin/pydoc
+	ln -sf /opt/gridlabd/bin/idle3.9 /opt/gridlabd/bin/idle
+	ln -sf /opt/gridlabd/bin/pip3.9 /opt/gridlabd/bin/pip3
+	curl -sSL https://bootstrap.pypa.io/get-pip.py | /opt/gridlabd/bin/python3
+	#/opt/gridlabd/bin/python3 pip -m install mysql-connector mysql-client matplotlib numpy pandas Pillow networkx
+	/opt/gridlabd/bin/python3 -m pip install matplotlib Pillow pandas numpy networkx pytz pysolar PyGithub scikit-learn xlrd boto3
+	/opt/gridlabd/bin/python3 -m pip install IPython censusdata
 fi
 
 
@@ -62,15 +62,15 @@ if [ ! -f /usr/bin/mono ]; then
 fi
 
 # # natural_docs
-if [ ! -x /usr/local/bin/natural_docs ]; then
-	cd /usr/local
+if [ ! -x /opt/gridlabd/bin/natural_docs ]; then
+	cd /opt/gridlabd
 	curl https://www.naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip > natural_docs.zip
 	unzip -qq natural_docs
 	rm -f natural_docs.zip
 	mv Natural\ Docs natural_docs
 	echo '#!/bin/bash
-mono /usr/local/natural_docs/NaturalDocs.exe \$*' > /usr/local/bin/natural_docs
-	chmod a+x /usr/local/bin/natural_docs
+mono /opt/gridlabd/natural_docs/NaturalDocs.exe \$*' > /opt/gridlabd/bin/natural_docs
+	chmod a+x /opt/gridlabd/bin/natural_docs
 fi
 
 # # converter support

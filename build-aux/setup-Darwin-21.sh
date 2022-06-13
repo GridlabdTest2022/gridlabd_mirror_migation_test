@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/opt/gridlabd/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # install homebrew
     brew update || mkdir /opt/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /opt/homebrew
@@ -51,4 +51,4 @@ fi
 # subversion cli
     brew install svn
 
-ln -s /opt/homebrew/bin/* /opt/gridlabd/src/bin
+ln -s /opt/homebrew/bin/* /opt/gridlabd/bin

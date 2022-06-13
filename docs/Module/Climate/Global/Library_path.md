@@ -7,19 +7,19 @@ GLM:
 ~~~
 module climate
 {
-	library_path "/usr/local/share/gridlabd/US";
+	library_path "/opt/gridlabd/share/gridlabd/US";
 }
 ~~~
 
 Shell:
 
 ~~~
-bash$ gridlabd -D climate::library_path=/usr/local/share/gridlabd/US ...
+bash$ gridlabd -D climate::library_path=/opt/gridlabd/share/gridlabd/US ...
 ~~~
 
 # Description
 
-The `library_path` module global specifies the search path climate and weather data files.  The default value is the system cache folder `/usr/local/share/gridlabd/US`.
+The `library_path` module global specifies the search path climate and weather data files.  The default value is the system cache folder `/opt/gridlabd/share/gridlabd/US`.
 
 # See also
 

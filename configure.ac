@@ -491,8 +491,8 @@ AS_IF([test -n "$DX_DOXYGEN"],
 AM_CONDITIONAL([HAVE_DOXYGEN], [test ! "x$HAVE_DOXYGEN" = "xno"])
 
 # Check for mysql
-AS_IF([test -f /usr/local/include/mysql/mysql.h -a /usr/local/lib/libmysqlclient.a ],
-    [MYSQL="/usr/local"],
+AS_IF([test -f /opt/gridlabd/include/mysql/mysql.h -a /opt/gridlabd/lib/libmysqlclient.a ],
+    [MYSQL="/opt/gridlabd"],
     [MYSQL="no"])
 AS_IF([test "x$MYSQL" != "xno"],
 	[MYSQL_CPPFLAGS="'-I$MYSQL/include/mysql'"

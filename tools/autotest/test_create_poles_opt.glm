@@ -1,5 +1,5 @@
-// automatically generated model from command `/usr/local/opt/gridlabd/4.2.31-220305-develop_fix_repo_structure/share/gridlabd/create_poles.py ./ieee13.glm --spacing=100 --pole_type=WOOD-EC-45/4 --weather=example --mount_data=./test_create_poles_mounts.csv --pole_data=./test_create_poles.csv --ignore_location --output=test_create_poles_opt.glm` on 2022-03-06 08:08:57 
-#include "/usr/local/opt/gridlabd/4.2.31-220305-develop_fix_repo_structure/share/gridlabd/library/US/CA/SLAC/pole_configuration.glm"
+// automatically generated model from command `/opt/gridlabd/opt/gridlabd/4.2.31-220305-develop_fix_repo_structure/share/gridlabd/create_poles.py ./ieee13.glm --spacing=100 --pole_type=WOOD-EC-45/4 --weather=example --mount_data=./test_create_poles_mounts.csv --pole_data=./test_create_poles.csv --ignore_location --output=test_create_poles_opt.glm` on 2022-03-06 08:08:57 
+#include "/opt/gridlabd/opt/gridlabd/4.2.31-220305-develop_fix_repo_structure/share/gridlabd/library/US/CA/SLAC/pole_configuration.glm"
 object pole
 {
     name "pole_Load671";

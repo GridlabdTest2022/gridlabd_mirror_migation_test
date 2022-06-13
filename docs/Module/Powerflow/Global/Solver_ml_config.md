@@ -10,7 +10,7 @@ module powerflow
 
 # Description
 
-The `solver_ml_config` module global is used to specify a non-standard ML solver configuration to use instead of the system default installed in `/usr/local/share/gridlabd/solver_ml.conf`.
+The `solver_ml_config` module global is used to specify a non-standard ML solver configuration to use instead of the system default installed in `/opt/gridlabd/share/gridlabd/solver_ml.conf`.
 
 # See also
 * [[/Module/Powerflow/Solver_configuration]]

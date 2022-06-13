@@ -2,7 +2,7 @@
 
 # Synopsis
 
-/usr/local/share/gridlabd/solver_ml.conf:
+/opt/gridlabd/share/gridlabd/solver_ml.conf:
 ~~~
 maximum_metric <real>
 method [none|basic]
@@ -44,7 +44,7 @@ The `on_dump` parameter enables external calls when a problem is presented to th
 
 ## logfile *filename*
 
-The `logfile` parameter sets the name of the file that contains the ML solver log.  By default this is `/usr/local/var/gridlabd/solver_ml.log`.
+The `logfile` parameter sets the name of the file that contains the ML solver log.  By default this is `/opt/gridlabd/var/gridlabd/solver_ml.log`.
 
 ## loglevel *integer*
 

@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 // filename... model_save.glm
 // workdir.... /Users/david/GitHub/gridlabd/autotest
-// command.... /usr/local/opt/gridlabd/4.2.1-200428-develop_fix_weather_autotest_usage/bin/gridlabd.bin /Users/david/GitHub/gridlabd/autotest/test_model_save_opt.glm
+// command.... /opt/gridlabd/opt/gridlabd/4.2.1-200428-develop_fix_weather_autotest_usage/bin/gridlabd.bin /Users/david/GitHub/gridlabd/autotest/test_model_save_opt.glm
 // created.... Wed Apr 29 10:34:28 2020
 // user....... david
 // host....... (null)

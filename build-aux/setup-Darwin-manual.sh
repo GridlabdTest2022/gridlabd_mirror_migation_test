@@ -5,7 +5,7 @@ will depend on how your system works.  The general process for a Mac OS X setup 
 
 brew update || ruby -e "\$(curl -fsSL https://raw.githubusercontent.com/HomeBrew/install/master/install)"
 brew install autoconf automake libtool gnu-sed python3
-ln -s /usr/local/bin/gsed /usr/local/bin/sed
+ln -s /opt/gridlabd/bin/gsed /opt/gridlabd/bin/sed
 pip3 install matplotlib pandas numpy
 
 The alternative way is to use --use-docker command to build custom docker image in your syste. Please see README.md for details.

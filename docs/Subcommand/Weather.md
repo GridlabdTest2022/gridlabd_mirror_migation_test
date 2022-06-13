@@ -184,7 +184,7 @@ To display information about a single downloaded weather file use the command:
 ~~~
 bash$ gridlabd weather info CA-San_Diego_Lindbergh_Field.tmy3
   Filepath,StationId,StationName,RegionName,TzOffset,Latitude,Longitude,Elevation
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
 ~~~
 
 To display information about all the downloaded weather files in a state, use the command:
@@ -193,13 +193,13 @@ To display information about all the downloaded weather files in a state, use th
 bash$ gridlabd weather info ^CA
 
   Filepath,StationId,StationName,RegionName,TzOffset,Latitude,Longitude,Elevation
-  "/usr/local/share/gridlabd/US/CA-Alturas.tmy3",725958,"ALTURAS",CA,-8.0,41.500,-120.533,1341
-  "/usr/local/share/gridlabd/US/CA-Arcata_Airport.tmy3",725945,"ARCATA AIRPORT",CA,-8.0,40.983,-124.100,62
-  "/usr/local/share/gridlabd/US/CA-Bakersfield_Meadows_Field.tmy3",723840,"BAKERSFIELD MEADOWS FIELD",CA,-8.0,35.433,-119.050,149
+  "/opt/gridlabd/share/gridlabd/US/CA-Alturas.tmy3",725958,"ALTURAS",CA,-8.0,41.500,-120.533,1341
+  "/opt/gridlabd/share/gridlabd/US/CA-Arcata_Airport.tmy3",725945,"ARCATA AIRPORT",CA,-8.0,40.983,-124.100,62
+  "/opt/gridlabd/share/gridlabd/US/CA-Bakersfield_Meadows_Field.tmy3",723840,"BAKERSFIELD MEADOWS FIELD",CA,-8.0,35.433,-119.050,149
   ...
-  "/usr/local/share/gridlabd/US/CA-Van_Nuys_Airport.tmy3",722886,"VAN NUYS AIRPORT",CA,-8.0,34.217,-118.483,235
-  "/usr/local/share/gridlabd/US/CA-Visalia_Muni_Awos.tmy3",723896,"VISALIA MUNI (AWOS)",CA,-8.0,36.317,-119.400,89
-  "/usr/local/share/gridlabd/US/CA-Yuba_Co.tmy3",724838,"YUBA CO",CA,-8.0,39.100,-121.567,19
+  "/opt/gridlabd/share/gridlabd/US/CA-Van_Nuys_Airport.tmy3",722886,"VAN NUYS AIRPORT",CA,-8.0,34.217,-118.483,235
+  "/opt/gridlabd/share/gridlabd/US/CA-Visalia_Muni_Awos.tmy3",723896,"VISALIA MUNI (AWOS)",CA,-8.0,36.317,-119.400,89
+  "/opt/gridlabd/share/gridlabd/US/CA-Yuba_Co.tmy3",724838,"YUBA CO",CA,-8.0,39.100,-121.567,19
 ~~~
 
 To display information about all the downloaded weather files matching a name pattern, use the command:
@@ -208,10 +208,10 @@ To display information about all the downloaded weather files matching a name pa
 bash$ gridlabd weather info San_Diego
 
   Filepath,StationId,StationName,RegionName,TzOffset,Latitude,Longitude,Elevation
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Miramar_Nas.tmy3",722930,"SAN DIEGO MIRAMAR NAS",CA,-8.0,32.867,-117.133,140
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Montgomer.tmy3",722903,"SAN DIEGO/MONTGOMER",CA,-8.0,32.817,-117.133,129
-  "/usr/local/share/gridlabd/US/CA-San_Diego_North_Island_Nas.tmy3",722906,"SAN DIEGO NORTH ISLAND NAS",CA,-8.0,32.700,-117.200,15
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Miramar_Nas.tmy3",722930,"SAN DIEGO MIRAMAR NAS",CA,-8.0,32.867,-117.133,140
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Montgomer.tmy3",722903,"SAN DIEGO/MONTGOMER",CA,-8.0,32.817,-117.133,129
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_North_Island_Nas.tmy3",722906,"SAN DIEGO NORTH ISLAND NAS",CA,-8.0,32.700,-117.200,15
 ~~~
 
 The information is output in CSV format for convenient manipulation using standard CSV readers. For example, the following command generates this output
@@ -220,10 +220,10 @@ The information is output in CSV format for convenient manipulation using standa
 bash$ gridlabd weather info San_Diego
 
   Filepath,StationId,StationName,RegionName,TzOffset,Latitude,Longitude,Elevation
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
-  "/usr/local/share/gridlabd/CA-San_Diego_Miramar_Nas.tmy3",722930,"SAN DIEGO MIRAMAR NAS",CA,-8.0,32.867,-117.133,140
-  "/usr/local/share/gridlabd/US/CA-San_Diego_Montgomer.tmy3",722903,"SAN DIEGO/MONTGOMER",CA,-8.0,32.817,-117.133,129
-  "/usr/local/share/gridlabd/US/CA-San_Diego_North_Island_Nas.tmy3",722906,"SAN DIEGO NORTH ISLAND NAS",CA,-8.0,32.700,-117.200,15
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Lindbergh_Field.tmy3",722900,"SAN DIEGO LINDBERGH FIELD",CA,-8.0,32.733,-117.167,4
+  "/opt/gridlabd/share/gridlabd/CA-San_Diego_Miramar_Nas.tmy3",722930,"SAN DIEGO MIRAMAR NAS",CA,-8.0,32.867,-117.133,140
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_Montgomer.tmy3",722903,"SAN DIEGO/MONTGOMER",CA,-8.0,32.817,-117.133,129
+  "/opt/gridlabd/share/gridlabd/US/CA-San_Diego_North_Island_Nas.tmy3",722906,"SAN DIEGO NORTH ISLAND NAS",CA,-8.0,32.700,-117.200,15
 ~~~
 
 ## `clean`
@@ -240,7 +240,7 @@ The `clean` removes existing data from the archive index cache and refreshes the
   gridlabd weather config {show,reset}
 ~~~
 
-The weather data configuration file `gridlabd-weather.conf` is located in the `${GLD_ETC}` folder in the installation folder. (By default the local installation prefix is `/usr/local` but the system administrator can change the installation folder using the `--prefix` option when building a custom install of `gridlabd`.) You can change the default behavior of the `weather` subcommand by creating and altering the weather data configuration file.  
+The weather data configuration file `gridlabd-weather.conf` is located in the `${GLD_ETC}` folder in the installation folder. (By default the local installation prefix is `/opt/gridlabd` but the system administrator can change the installation folder using the `--prefix` option when building a custom install of `gridlabd`.) You can change the default behavior of the `weather` subcommand by creating and altering the weather data configuration file.  
 
 To get a list of the current weather data configuration use the command
 
@@ -254,7 +254,7 @@ bash$ gridlabd weather config show
 
   GITREPO="gridlabd-weather"
   GITBRANCH="master"
-  DATADIR="/usr/local/share/gridlabd/weather"
+  DATADIR="/opt/gridlabd/share/gridlabd/weather"
   SVNLSOPTIONS="--config-option=servers:global:http-timeout=60 --non-interactive -r1"
 ~~~
 
@@ -346,7 +346,7 @@ will output multiple objects, one for each station.
 
 # Environment Variables
 
-The weather subcommand needs to know where you wish to store the weather files.  The environment variable `GLD_ETC` is used to indicate where the `weather` folder is.  By default this is the `/usr/local/share/gridlabd` folder.
+The weather subcommand needs to know where you wish to store the weather files.  The environment variable `GLD_ETC` is used to indicate where the `weather` folder is.  By default this is the `/opt/gridlabd/share/gridlabd` folder.
 
 # Tutorial
 
