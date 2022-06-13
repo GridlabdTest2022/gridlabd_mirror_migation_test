@@ -1,2 +1,2 @@
-export GLPATH=/usr/etc/gridlabd:/usr/lib/gridlabd:/usr/etc/gridlabd/rt:/usr/etc/gridlabd/tmy
-export GRIDLABD=/usr/etc/gridlabd
+export GLPATH=/opt/gridlabd/etc/gridlabd:/opt/gridlabd/lib/gridlabd:/opt/gridlabd/etc/gridlabd/rt:/opt/gridlabd/etc/gridlabd/tmy
+export GRIDLABD=/opt/gridlabd/etc/gridlabd

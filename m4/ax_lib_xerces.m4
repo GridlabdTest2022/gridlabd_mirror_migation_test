@@ -55,8 +55,8 @@ AC_DEFUN([AX_LIB_XERCES],
         ),
         [
         if test "$withval" = "yes"; then
-            if test -d /opt/gridlabd/include/xercesc ; then
-                xerces_prefix=/opt/gridlabd
+            if test -d /opt/gridlabd/opt/xercesc ; then
+                xerces_prefix=/opt/gridlabd/opt
             elif test -d /usr/include/xercesc ; then
                 xerces_prefix=/usr
             else
@@ -73,8 +73,8 @@ AC_DEFUN([AX_LIB_XERCES],
         ],
         [
         dnl Default behavior is implicit yes
-        if test -d /opt/gridlabd/include/xercesc ; then
-            xerces_prefix=/opt/gridlabd
+        if test -d /opt/gridlabd/opt/xercesc ; then
+            xerces_prefix=/opt/gridlabd/opt
         elif test -d /usr/include/xercesc ; then
             xerces_prefix=/usr
         else

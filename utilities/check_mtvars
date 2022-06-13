@@ -1,4 +1,4 @@
-#!/usr/bin/awk -f 
+#!/opt/gridlabd/bin/awk -f 
 
 BEGIN {
 	system("gridlabd --version");
