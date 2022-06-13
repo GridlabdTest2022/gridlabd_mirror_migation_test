@@ -1,4 +1,4 @@
 #!/bin/bash
 for REQ in $(find . -name requirements.txt -print); do
-    /opt/gridlabd/src/bin/python3 -m pip -r $REQ
+    /opt/gridlabd/bin/python3 -m pip -r $REQ
 done

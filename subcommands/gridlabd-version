@@ -73,7 +73,7 @@ function version-source()
 
 function version-save()
 {
-	if [ -f /opt/gridlabd/src/bin/gridlabd -a ! -L /opt/gridlabd/src/bin/gridlabd ]; then
+	if [ -f /opt/gridlabd/bin/gridlabd -a ! -L /opt/gridlabd/bin/gridlabd ]; then
 		SAVED="$(${BIN} --version | cut -f2 -d' ')-saved_$(date '+%Y%m%d')"
 		N=0
 		TRY="$SAVED"
@@ -86,7 +86,7 @@ function version-save()
 		for F in bin lib share include; do
 			[ ! -d /opt/gridlabd/opt/gridlabd/$SAVED/$F ]; $ACTION mkdir -p /opt/gridlabd/opt/gridlabd/$SAVED/$F
 			if [ "$F" == "bin" ]; then
-				$ACTION mv /opt/gridlabd/src/bin/gridlabd* /opt/gridlabd/opt/gridlabd/$SAVED/bin
+				$ACTION mv /opt/gridlabd/bin/gridlabd* /opt/gridlabd/opt/gridlabd/$SAVED/bin
 			else
 				[ -f /opt/gridlabd/$F/gridlabd -a ! -L /opt/gridlabd/$F/gridlabd ] && $ACTION mv /opt/gridlabd/$F/gridlabd /opt/gridlabd/opt/gridlabd/$SAVED/$F
 			fi
@@ -198,7 +198,7 @@ fi
 if [ -z "$(which gridlabd)" ]; then
 	warning "gridlabd is not in the current PATH environment"
 fi
-if [ ! -x "/opt/gridlabd/src/bin/python3" ]; then
-	warning "python3 is not linked where gridlabd wants it in /opt/gridlabd/src/bin"
+if [ ! -x "/opt/gridlabd/bin/python3" ]; then
+	warning "python3 is not linked where gridlabd wants it in /opt/gridlabd/bin"
 fi
 

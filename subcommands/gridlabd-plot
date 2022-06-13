@@ -1,4 +1,4 @@
-#!/opt/gridlabd/src/bin/python3
+#!/opt/gridlabd/bin/python3
 """GridLAB-D plot subcommand
 
 SYNOPSIS
